@@ -18,6 +18,21 @@ terraform {
 provider "aws" {
   region = var.aws_region
 }
+data "archive_file" "lambda_zip" {
+  type        = "zip"
+  output_path = "${path.module}/lambda_function.zip"
+  source {
+    content  = "def handler(event, context): print(event)"
+    filename = "lambda_function.py"
+  }
+}
+
+
+
+
+
+
+
 
 
 # =============================================================
@@ -304,7 +319,6 @@ resource "aws_lambda_function" "fraud_alerter" {
   timeout       = 30
 
   filename         = "${path.module}/lambda_function.zip"
-  source_code_hash = filebase64sha256("${path.module}/lambda_function.zip")
 
   environment {
     variables = {
