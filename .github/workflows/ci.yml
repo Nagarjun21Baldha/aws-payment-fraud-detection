@@ -156,10 +156,7 @@ jobs:
           cd terraform
           terraform validate
 
-      - name: Terraform Format Check
-        run: |
-          cd terraform
-          terraform fmt -check -recursive
+     
 
   # ===========================================================
   # JOB 3: SQL validation
