@@ -1,0 +1,46 @@
+transaction_id,user_id,amount,currency,merchant_name,merchant_category,user_country,ip_country,device,timestamp,avg_spend,event_timestamp,flag_velocity,flag_spike,flag_geography,is_fraud_detected,fraud_reason
+3c86c74c-6daa-47ca-9856-f374758608f9,USR-0098,255.81,USD,Delta Airlines,retail,US,US,mobile,2026-03-15 00:38:49.386365+00:00,281.74,2026-03-15 00:38:49.386365+00:00,True,False,False,True,velocity
+a498b159-428c-415b-83a9-5dd598b7e460,USR-0098,381.64,USD,Walmart,retail,CA,CA,mobile,2026-03-14 23:25:49.386365+00:00,281.74,2026-03-14 23:25:49.386365+00:00,True,False,False,True,velocity
+a4f03d2a-7a95-4b08-b891-6f8271e41f4a,USR-0042,360.42,USD,Walmart,retail,US,US,mobile,2026-03-15 00:54:49.386365+00:00,244.53,2026-03-15 00:54:49.386365+00:00,True,False,False,True,velocity
+ec4e5610-a31b-4f20-ac95-36a58441501d,USR-0035,1035.55,USD,Apple Store,electronics,US,US,desktop,2026-03-15 00:57:49.386365+00:00,77.15,2026-03-15 00:57:49.386365+00:00,False,True,False,True,amount_spike
+0187e7ea-f4b6-4bc3-9ffa-644493048fd2,USR-0059,345.22,USD,Apple Store,retail,US,UA,desktop,2026-03-15 00:39:49.386365+00:00,84.47,2026-03-15 00:39:49.386365+00:00,False,True,True,True,"amount_spike, foreign_ip"
+ebc3c05e-9f3b-461a-9105-db65cfd53d54,USR-0042,11.29,USD,McDonald's,retail,US,US,desktop,2026-03-15 00:48:49.386365+00:00,244.53,2026-03-15 00:48:49.386365+00:00,True,False,False,True,velocity
+b17597ec-df21-4a64-91e7-e77ebf1af373,USR-0098,14.55,USD,Netflix,retail,US,US,desktop,2026-03-15 00:21:49.386365+00:00,281.74,2026-03-15 00:21:49.386365+00:00,True,False,False,True,velocity
+b96a1eb2-7c2d-4cbd-b869-47ded9c98e8b,USR-0042,1.98,USD,Marriott,retail,US,US,desktop,2026-03-15 00:49:49.386365+00:00,244.53,2026-03-15 00:49:49.386365+00:00,True,False,False,True,velocity
+e3ef7dbd-50ea-492b-a9fb-fff71c6f5dd9,USR-0098,7.13,USD,Target,retail,US,US,desktop,2026-03-15 00:22:19.386365+00:00,281.74,2026-03-15 00:22:19.386365+00:00,True,False,False,True,velocity
+e00d8424-3c2c-4fb9-938d-c1eead108990,USR-0096,609.2,USD,McDonald's,retail,US,NG,desktop,2026-03-15 00:55:49.386365+00:00,228.84,2026-03-15 00:55:49.386365+00:00,False,False,True,True,foreign_ip
+684fbaeb-0047-4425-a1e8-649e337bfb1e,USR-0039,5195.31,USD,Apple Store,electronics,US,US,desktop,2026-03-15 00:54:49.386365+00:00,354.08,2026-03-15 00:54:49.386365+00:00,False,True,False,True,amount_spike
+19d8a6a3-14ee-4570-99ee-82c3dadc6535,USR-0020,1264.66,USD,Uber,retail,US,PK,desktop,2026-03-15 00:55:49.386365+00:00,179.8,2026-03-15 00:55:49.386365+00:00,False,True,True,True,"amount_spike, foreign_ip"
+9b58c105-b996-4f4f-a74b-a9d969b9ee2b,USR-0042,12.3,USD,Uber,retail,US,US,desktop,2026-03-15 00:51:19.386365+00:00,244.53,2026-03-15 00:51:19.386365+00:00,True,False,False,True,velocity
+0d08216e-977b-44c3-93b5-16d4bfff66d2,USR-0042,141.67,USD,Walmart,retail,US,US,mobile,2026-03-14 23:05:49.386365+00:00,244.53,2026-03-14 23:05:49.386365+00:00,True,False,False,True,velocity
+b0f66747-4bfe-4c5d-bd12-d1059e1b9984,USR-0012,26.55,USD,Uber,retail,US,US,desktop,2026-03-15 00:18:49.386365+00:00,35.38,2026-03-15 00:18:49.386365+00:00,True,False,False,True,velocity
+5cc1bfa1-68f9-4152-b8f9-274d587445e0,USR-0098,213.33,USD,Amazon,retail,US,US,tablet,2026-03-14 23:42:49.386365+00:00,281.74,2026-03-14 23:42:49.386365+00:00,True,False,False,True,velocity
+32ac6056-2151-4bac-a8dc-892d61f867d8,USR-0098,7.5600000000000005,USD,Delta Airlines,retail,US,US,desktop,2026-03-15 00:21:19.386365+00:00,281.74,2026-03-15 00:21:19.386365+00:00,True,False,False,True,velocity
+80cce592-c25b-4b13-a4d9-51636d9434ca,USR-0098,5.65,USD,McDonald's,retail,US,US,desktop,2026-03-15 00:22:49.386365+00:00,281.74,2026-03-15 00:22:49.386365+00:00,True,False,False,True,velocity
+dd957d1c-1438-4cfe-9f94-c23f4d76b180,USR-0012,14.9,USD,Walmart,retail,US,US,desktop,2026-03-15 00:51:49.386365+00:00,35.38,2026-03-15 00:51:49.386365+00:00,True,False,False,True,velocity
+de010848-02a2-4a71-8f53-fc78565c54cd,USR-0012,44.9,USD,Delta Airlines,retail,CA,CA,mobile,2026-03-15 00:54:49.386365+00:00,35.38,2026-03-15 00:54:49.386365+00:00,True,False,False,True,velocity
+80dc7217-fb7f-4fdb-8542-d5964bfb7621,USR-0098,210.56,USD,Uber,retail,US,US,mobile,2026-03-14 23:54:49.386365+00:00,281.74,2026-03-14 23:54:49.386365+00:00,True,False,False,True,velocity
+fcf085c2-08c3-4dfa-82e3-c8c13a9e021c,USR-0012,12.41,USD,Amazon,retail,US,US,desktop,2026-03-15 00:50:49.386365+00:00,35.38,2026-03-15 00:50:49.386365+00:00,True,False,False,True,velocity
+30cb397f-b622-4f49-89cd-e2eb8abb830c,USR-0012,33.54,USD,Apple Store,retail,US,US,mobile,2026-03-15 00:45:49.386365+00:00,35.38,2026-03-15 00:45:49.386365+00:00,True,False,False,True,velocity
+35f9a132-4e70-4142-ad60-dbe5d812328a,USR-0042,6.97,USD,Walmart,retail,US,US,desktop,2026-03-15 00:49:19.386365+00:00,244.53,2026-03-15 00:49:19.386365+00:00,True,False,False,True,velocity
+fab618bf-f09f-493f-8e23-1649e019c8da,USR-0012,11.72,USD,McDonald's,retail,US,US,desktop,2026-03-15 00:52:19.386365+00:00,35.38,2026-03-15 00:52:19.386365+00:00,True,False,False,True,velocity
+173690bb-5a12-44fd-b0d7-abbee9a5eb70,USR-0012,29.64,USD,Apple Store,retail,US,US,tablet,2026-03-14 23:53:49.386365+00:00,35.38,2026-03-14 23:53:49.386365+00:00,True,False,False,True,velocity
+660d72e1-e86c-424c-a5ba-64899a863e84,USR-0042,152.27,USD,Shell Gas,retail,US,US,tablet,2026-03-15 00:27:49.386365+00:00,244.53,2026-03-15 00:27:49.386365+00:00,True,False,False,True,velocity
+7bc5fe50-12b6-4382-9888-3092bfbb03b8,USR-0012,32.45,USD,Amazon,retail,US,US,mobile,2026-03-15 00:03:49.386365+00:00,35.38,2026-03-15 00:03:49.386365+00:00,True,False,False,True,velocity
+19eb74ce-56b1-4798-b5c1-b9b74378e5fe,USR-0055,1654.68,USD,Apple Store,electronics,US,US,desktop,2026-03-15 00:36:49.386365+00:00,211.85,2026-03-15 00:36:49.386365+00:00,False,True,False,True,amount_spike
+774a7a27-dece-448f-a9b6-28684152cc6b,USR-0081,3027.55,USD,Apple Store,electronics,US,US,desktop,2026-03-15 00:38:49.386365+00:00,264.69,2026-03-15 00:38:49.386365+00:00,False,True,False,True,amount_spike
+2f456713-8626-4cb8-8c0a-e10f47dfb9ff,USR-0012,39.01,USD,Amazon,retail,US,US,desktop,2026-03-14 23:28:49.386365+00:00,35.38,2026-03-14 23:28:49.386365+00:00,True,False,False,True,velocity
+a5e85243-39f8-4d13-9fda-8809d8898197,USR-0012,48.66,USD,McDonald's,retail,US,US,desktop,2026-03-14 23:32:49.386365+00:00,35.38,2026-03-14 23:32:49.386365+00:00,True,False,False,True,velocity
+8dea5e20-81ff-41a4-a557-0b91fdf0aaba,USR-0098,8.94,USD,Netflix,retail,US,US,desktop,2026-03-15 00:20:49.386365+00:00,281.74,2026-03-15 00:20:49.386365+00:00,True,False,False,True,velocity
+dc885416-1b1e-4931-8922-747cf5b90ceb,USR-0012,9.5,USD,Netflix,retail,US,US,desktop,2026-03-15 00:51:19.386365+00:00,35.38,2026-03-15 00:51:19.386365+00:00,True,False,False,True,velocity
+5d5b894c-92ee-443a-abb4-e9949ac4a996,USR-0098,223.93,USD,McDonald's,retail,GB,GB,mobile,2026-03-15 00:51:49.386365+00:00,281.74,2026-03-15 00:51:49.386365+00:00,True,False,False,True,velocity
+387734ca-0ebf-4b7f-a7af-188870befbb1,USR-0098,159.98,USD,Target,retail,US,US,desktop,2026-03-15 00:16:49.386365+00:00,281.74,2026-03-15 00:16:49.386365+00:00,True,False,False,True,velocity
+2dc16cda-cc12-4011-b624-b05c3b9f654f,USR-0012,7.82,USD,Uber,retail,US,US,desktop,2026-03-15 00:53:19.386365+00:00,35.38,2026-03-15 00:53:19.386365+00:00,True,False,False,True,velocity
+740d22a1-4e01-4fce-9173-5b43adafc562,USR-0012,14.7,USD,Delta Airlines,retail,US,US,desktop,2026-03-15 00:52:49.386365+00:00,35.38,2026-03-15 00:52:49.386365+00:00,True,False,False,True,velocity
+75d7bdc8-d87d-41e5-be77-4266481fa4b3,USR-0042,6.43,USD,Shell Gas,retail,US,US,desktop,2026-03-15 00:50:49.386365+00:00,244.53,2026-03-15 00:50:49.386365+00:00,True,False,False,True,velocity
+69384f8a-f983-4740-8bf5-c4f326b3bcaf,USR-0095,1158.61,USD,Apple Store,retail,US,UA,desktop,2026-03-15 00:55:49.386365+00:00,164.96,2026-03-15 00:55:49.386365+00:00,False,True,True,True,"amount_spike, foreign_ip"
+cd891312-4ad5-4b18-8b15-fb8b7ac19c65,USR-0098,384.79,USD,McDonald's,retail,US,US,tablet,2026-03-14 23:58:49.386365+00:00,281.74,2026-03-14 23:58:49.386365+00:00,True,False,False,True,velocity
+8e47cb3d-da2c-4764-926c-2a6f95a39173,USR-0098,10.62,USD,Delta Airlines,retail,US,US,desktop,2026-03-15 00:23:19.386365+00:00,281.74,2026-03-15 00:23:19.386365+00:00,True,False,False,True,velocity
+c68cc8ba-f329-443d-9d36-6a1e7abc2d8e,USR-0042,13.36,USD,Uber,retail,US,US,desktop,2026-03-15 00:50:19.386365+00:00,244.53,2026-03-15 00:50:19.386365+00:00,True,False,False,True,velocity
+1e6c4863-789d-4c81-94c8-93c2e9b2c3a9,USR-0018,1522.7,USD,Apple Store,electronics,US,US,desktop,2026-03-15 00:32:49.386365+00:00,174.58,2026-03-15 00:32:49.386365+00:00,False,True,False,True,amount_spike
+6555d7d4-abf1-4a91-b95e-f6b4f07d615a,USR-0042,288.8,USD,Netflix,retail,US,US,mobile,2026-03-14 23:59:49.386365+00:00,244.53,2026-03-14 23:59:49.386365+00:00,True,False,False,True,velocity
