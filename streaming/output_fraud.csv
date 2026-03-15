@@ -1,0 +1,13 @@
+transaction_id,user_id,amount,currency,merchant_name,merchant_category,user_country,ip_country,device,timestamp,is_fraud,fraud_type,event_timestamp,ingestion_layer,country_mismatch,amount_bucket,event_date,event_hour
+1f3d4f73-c7a5-40f1-b699-5a9cb71edc19,USR-0193,5227.83,USD,McDonald's,retail,US,US,desktop,2026-03-15 00:35:52.326990+00:00,True,large_amount,2026-03-15 00:35:52.326990+00:00,silver,False,very_large,2026-03-15,0
+0042d9de-4257-45f0-8f5e-302d5fbead6d,USR-0190,6.92,USD,Shell Gas,retail,US,US,mobile,2026-03-15 00:35:52.326996+00:00,True,rapid_fire,2026-03-15 00:35:52.326996+00:00,silver,False,micro,2026-03-15,0
+5ee9d396-ad9e-4c9d-9517-8089be08d88e,USR-0170,8.58,USD,Shell Gas,retail,US,US,desktop,2026-03-15 00:35:52.327179+00:00,True,rapid_fire,2026-03-15 00:35:52.327179+00:00,silver,False,micro,2026-03-15,0
+b8c6f71e-61c4-4624-9e2a-db0e992073e4,USR-0078,1300.59,USD,Netflix,retail,US,US,mobile,2026-03-15 00:35:52.327206+00:00,True,large_amount,2026-03-15 00:35:52.327206+00:00,silver,False,large,2026-03-15,0
+7ce39695-ed8a-48e2-88fd-8463c70a605b,USR-0039,9.6,USD,Shell Gas,retail,US,US,desktop,2026-03-15 00:35:52.327239+00:00,True,rapid_fire,2026-03-15 00:35:52.327239+00:00,silver,False,micro,2026-03-15,0
+26e3c543-3ce1-479b-819c-03552425b224,USR-0021,9.94,USD,Walmart,retail,CA,CA,tablet,2026-03-15 00:35:52.327308+00:00,True,rapid_fire,2026-03-15 00:35:52.327308+00:00,silver,False,micro,2026-03-15,0
+dd5713ff-bdff-4263-849b-80cde54a4976,USR-0151,1459.05,USD,Uber,retail,US,US,tablet,2026-03-15 00:35:52.327319+00:00,True,large_amount,2026-03-15 00:35:52.327319+00:00,silver,False,large,2026-03-15,0
+196809eb-82da-4819-a3d9-338e6390f3cc,USR-0054,2.55,USD,Walmart,retail,US,US,tablet,2026-03-15 00:35:52.327332+00:00,True,rapid_fire,2026-03-15 00:35:52.327332+00:00,silver,False,micro,2026-03-15,0
+82f4e6b8-fea7-46df-92dd-97ce694da44b,USR-0029,222.76,USD,Amazon,retail,US,US,mobile,2026-03-15 00:35:52.327376+00:00,True,large_amount,2026-03-15 00:35:52.327376+00:00,silver,False,medium,2026-03-15,0
+8ff916b1-4d83-4e86-bea6-3bf02964beaa,USR-0138,1141.11,USD,Netflix,retail,GB,GB,mobile,2026-03-15 00:35:52.327551+00:00,True,large_amount,2026-03-15 00:35:52.327551+00:00,silver,False,large,2026-03-15,0
+89f74ee4-e16b-4d46-90e3-0ad11e36b56c,USR-0094,1.71,USD,Apple Store,retail,CA,CA,mobile,2026-03-15 00:35:52.327667+00:00,True,rapid_fire,2026-03-15 00:35:52.327667+00:00,silver,False,micro,2026-03-15,0
+fad1433f-b2cb-4cd9-9d88-8b2579b16f15,USR-0169,2807.27,USD,McDonald's,retail,US,US,tablet,2026-03-15 00:35:52.327734+00:00,True,large_amount,2026-03-15 00:35:52.327734+00:00,silver,False,very_large,2026-03-15,0
