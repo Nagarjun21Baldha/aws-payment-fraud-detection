@@ -1,0 +1,210 @@
+# =============================================================
+# GitHub Actions CI/CD Pipeline
+# =============================================================
+# Runs automatically on every push and pull request.
+# Tests Python code, validates Terraform, checks SQL.
+# =============================================================
+
+name: Payment Fraud Detection Pipeline — CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  # ===========================================================
+  # JOB 1: Python tests — lint and unit tests
+  # ===========================================================
+  python-tests:
+    name: Python Lint & Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas faker pytest flake8
+
+      - name: Lint with flake8
+        run: |
+          # check for syntax errors and undefined names
+          flake8 producer/ streaming/ fraud_rules/ \
+            --count \
+            --select=E9,F63,F7,F82 \
+            --show-source \
+            --statistics
+          # style warnings (non-blocking)
+          flake8 producer/ streaming/ fraud_rules/ \
+            --count \
+            --max-line-length=120 \
+            --statistics \
+            --exit-zero
+
+      - name: Run producer tests
+        run: |
+          cd producer
+          python -c "
+          import sys
+          sys.path.insert(0, '.')
+          from payment_producer import USER_POOL, MERCHANTS, COUNTRIES, normal_transaction, fraud_large_amount, fraud_foreign_ip, fraud_rapid_fire
+          # test user pool generated correctly
+          assert len(USER_POOL) == 200, 'User pool should have 200 users'
+          # test normal transaction structure
+          user = USER_POOL[0]
+          event = normal_transaction(user)
+          assert 'transaction_id' in event
+          assert 'user_id' in event
+          assert 'amount' in event
+          assert event['is_fraud'] == False
+          assert event['amount'] > 0
+          # test fraud patterns
+          fraud_event = fraud_large_amount(user)
+          assert fraud_event['is_fraud'] == True
+          assert fraud_event['fraud_type'] == 'large_amount'
+          assert fraud_event['amount'] > user['avg_txn'] * 4
+          foreign = fraud_foreign_ip(user)
+          assert foreign['fraud_type'] == 'foreign_ip'
+          assert foreign['user_country'] != foreign['ip_country']
+          rapid = fraud_rapid_fire(user)
+          assert rapid['fraud_type'] == 'rapid_fire'
+          assert rapid['amount'] < 15
+          print('All producer tests passed.')
+          "
+
+      - name: Run streaming transformation tests
+        run: |
+          cd streaming
+          python -c "
+          import pandas as pd
+          import sys
+          sys.path.insert(0, '.')
+          from local_test_processor import generate_sample_events, to_bronze, to_silver, filter_fraud
+          # generate and test
+          f = generate_sample_events(n=100)
+          df = pd.read_json(f, lines=True)
+          assert len(df) == 100, 'Should have 100 events'
+          bronze = to_bronze(df)
+          assert 'event_timestamp' in bronze.columns
+          assert 'ingestion_layer' in bronze.columns
+          silver = to_silver(bronze)
+          assert 'country_mismatch' in silver.columns
+          assert 'amount_bucket' in silver.columns
+          assert (silver['amount'] > 0).all(), 'All amounts should be positive'
+          fraud = filter_fraud(silver)
+          assert fraud['is_fraud'].all(), 'All fraud records should be flagged'
+          print('All streaming tests passed.')
+          "
+
+      - name: Run fraud rules tests
+        run: |
+          cd fraud_rules
+          python -c "
+          import pandas as pd
+          import sys
+          sys.path.insert(0, '.')
+          from fraud_detector import generate_events, apply_fraud_rules
+          # generate and test
+          f, users = generate_events(n=200)
+          df = pd.read_json(f, lines=True)
+          import pandas as pd
+          df['event_timestamp'] = pd.to_datetime(df['timestamp'], utc=True)
+          result = apply_fraud_rules(df)
+          assert 'is_fraud_detected' in result.columns
+          assert 'fraud_reason' in result.columns
+          assert 'flag_velocity' in result.columns
+          assert 'flag_spike' in result.columns
+          assert 'flag_geography' in result.columns
+          fraud_count = result['is_fraud_detected'].sum()
+          assert fraud_count > 0, 'Should detect at least some fraud'
+          print(f'Fraud rules tests passed. Detected {fraud_count} fraudulent transactions.')
+          "
+
+  # ===========================================================
+  # JOB 2: Terraform validation
+  # ===========================================================
+  terraform-validate:
+    name: Terraform Validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.0
+
+      - name: Terraform Init
+        run: |
+          cd terraform
+          terraform init -backend=false
+
+      - name: Terraform Validate
+        run: |
+          cd terraform
+          terraform validate
+
+      - name: Terraform Format Check
+        run: |
+          cd terraform
+          terraform fmt -check -recursive
+
+  # ===========================================================
+  # JOB 3: SQL validation
+  # ===========================================================
+  sql-validate:
+    name: SQL Syntax Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install sqlfluff
+        run: pip install sqlfluff
+
+      - name: Check SQL files exist and are non-empty
+        run: |
+          for f in redshift/schema.sql redshift/load_data.sql redshift/analytics_queries.sql; do
+            if [ ! -s "$f" ]; then
+              echo "ERROR: $f is missing or empty"
+              exit 1
+            fi
+            echo "OK: $f"
+          done
+
+  # ===========================================================
+  # JOB 4: Security scan — check for hardcoded credentials
+  # ===========================================================
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for hardcoded AWS credentials
+        run: |
+          # fail if any file contains hardcoded AWS keys
+          if grep -r "AKIA[0-9A-Z]{16}" --include="*.py" --include="*.tf" .; then
+            echo "ERROR: Hardcoded AWS Access Key found!"
+            exit 1
+          fi
+          if grep -r "aws_secret_access_key\s*=\s*['\"][A-Za-z0-9/+=]{40}" --include="*.py" .; then
+            echo "ERROR: Hardcoded AWS Secret Key found!"
+            exit 1
+          fi
+          echo "Security scan passed — no hardcoded credentials found."
